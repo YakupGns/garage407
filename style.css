@@ -36,6 +36,8 @@ header {
 .ana-menu li {
     position: relative;
     margin-left: 20px;
+    flex-shrink: 0;
+    /* Mobilde küçülmesin */
 }
 
 .ana-menu a {
@@ -46,6 +48,8 @@ header {
     padding: 10px 15px;
     transition: 0.3s;
     display: block;
+    white-space: nowrap;
+    /* Mobilde alt satıra geçmesin */
 }
 
 .ana-menu a:hover {
@@ -76,7 +80,7 @@ header {
     display: block;
 }
 
-/* --- ARAMA KUTUSU (HEADER İÇİ) --- */
+/* --- ARAMA KUTUSU --- */
 .arama-kutusu {
     background: #222;
     height: 40px;
@@ -195,6 +199,7 @@ header {
     color: white;
     max-width: 800px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    padding: 20px;
 }
 
 .buyuk-baslik {
@@ -209,12 +214,12 @@ header {
     color: #e0e0e0;
 }
 
-/* --- SAYFA İÇERİK KAPSAYICISI (ORTA ALAN) --- */
+/* --- ORTA ALAN KAPSAYICISI --- */
 .sayfa-kapsayici {
     position: relative;
     overflow: hidden;
-    /* Kalan tüm boşluğu doldurarak Footer'ı aşağı it */
     flex: 1;
+    /* Footer'ı aşağı it */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -230,7 +235,6 @@ header {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    /* En arkada dursun */
     filter: brightness(0.4);
 }
 
@@ -243,7 +247,6 @@ header {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-top: 5px solid #0066cc;
-    /* Resmi altta bırakmak için kutuyu öne çıkarıyoruz */
     position: relative;
     z-index: 10;
 }
@@ -263,7 +266,7 @@ header {
     overflow: hidden;
 }
 
-/* --- İÇERİK KUTULARI (ANASAYFA ALT) --- */
+/* --- POPÜLER İÇERİKLER --- */
 .baslik-kapsayici {
     text-align: center;
     padding-top: 60px;
@@ -291,7 +294,6 @@ header {
     gap: 30px;
     padding: 60px 20px;
     flex-wrap: wrap;
-    /* Çok kutu olursa alta geçsin */
 }
 
 .bilgi-kutusu {
@@ -374,7 +376,7 @@ header {
     margin-top: 0;
 }
 
-/* --- TİPOGRAFİ (METİNLER) --- */
+/* --- TİPOGRAFİ --- */
 .sayfa-basligi {
     color: #111;
     text-align: center;
@@ -422,6 +424,25 @@ header {
     margin-bottom: 10px;
 }
 
+/* --- ARAMA ETİKETLERİ --- */
+.etiket-link {
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+}
+
+.etiket-link:hover {
+    background-color: #0066cc;
+    color: white;
+    border-color: #0066cc;
+}
+
 /* --- FOOTER --- */
 .alt-alan {
     background-color: #0a0a0a;
@@ -429,7 +450,6 @@ header {
     text-align: center;
     padding: 40px 20px;
     margin-top: auto;
-    /* İçerik azsa bile en altta kal */
     border-top: 3px solid #0066cc;
 }
 
@@ -452,90 +472,88 @@ header {
     color: #0066cc;
 }
 
-/* --- ARAMA SAYFASI ETİKETLERİ --- */
-.etiket-link {
-    background-color: #f0f2f5;
-    color: #333;
-    padding: 8px 15px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.3s;
-    border: 1px solid #ddd;
-}
-
-.etiket-link:hover {
-    background-color: #0066cc;
-    color: white;
-    border-color: #0066cc;
-}
-
 /* --- MOBİL UYUMLULUK (RESPONSIVE) --- */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
-        padding: 20px 10px;
+        padding: 10px 0;
         height: auto;
     }
 
+    .site-logo {
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    /* Mobilde menüyü yan yana ve kaydırılabilir yap */
     .ana-menu {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
         width: 100%;
-        margin-top: 20px;
+        overflow-x: auto;
+        /* Yana kaydır */
+        white-space: nowrap;
+        padding: 10px;
+        background-color: #1a1a1a;
+        scrollbar-width: none;
+        /* Kaydırma çubuğunu gizle */
+    }
+
+    .ana-menu::-webkit-scrollbar {
+        display: none;
     }
 
     .ana-menu li {
-        margin: 10px 0;
-        width: 100%;
-        text-align: center;
+        margin: 0 10px;
     }
 
+    .ana-menu a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    /* Mobilde Dropdown'ı gizle (tıklayınca ana sayfaya gitsin) */
+    .alt-menu {
+        display: none !important;
+    }
+
+    /* Mobilde arama kutusu küçülsün */
     .arama-kutusu {
-        width: 100%;
-        justify-content: space-between;
+        width: 35px;
     }
 
-    .arama-kutusu:hover>.arama-input {
-        width: 100%;
+    .arama-kutusu:hover {
+        width: 150px;
+        position: absolute;
+        right: 10px;
+        z-index: 20;
     }
 
+    /* Genel Küçültmeler */
     .buyuk-baslik {
-        font-size: 32px;
-    }
-
-    .sayfa-basligi {
         font-size: 28px;
     }
 
-    .icerik-ozetleri {
-        flex-direction: column;
-        align-items: center;
+    .sayfa-basligi {
+        font-size: 24px;
     }
 
-    .bilgi-kutusu {
-        width: 100%;
-        margin-bottom: 30px;
+    .karsilama-kutusu {
+        height: 350px;
     }
 
+    .icerik-ozetleri,
     .iletisim-kutusu {
         flex-direction: column;
-        width: 100%;
     }
 
+    .bilgi-kutusu,
     .form-bolumu,
-    .harita-bolumu {
-        width: 100%;
-        padding: 20px;
-    }
-
+    .harita-bolumu,
     .form-kutusu,
     .hakkimizda-kutusu {
         width: 100%;
         padding: 20px;
-    }
-
-    .karsilama-kutusu {
-        height: 400px;
+        margin-bottom: 20px;
     }
 }
