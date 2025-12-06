@@ -4,6 +4,10 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f2f5;
+    /* Sayfayı dikeyde tam ekran yap */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* --- HEADER (ÜST MENÜ) --- */
@@ -26,6 +30,7 @@ header {
     margin: 0;
     padding: 0;
     align-items: center;
+    /* Butonları dikeyde ortalar */
 }
 
 .ana-menu li {
@@ -71,6 +76,7 @@ header {
     display: block;
 }
 
+/* --- BUTONLAR --- */
 .buton-giris {
     border: 1px solid white;
     border-radius: 4px;
@@ -79,6 +85,24 @@ header {
 .buton-kayit {
     background-color: #0066cc;
     border-radius: 4px;
+}
+
+.mavi-buton {
+    background-color: #0066cc;
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 18px;
+    display: inline-block;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+}
+
+.mavi-buton:hover {
+    background-color: #004c99;
+    transform: translateY(-2px);
 }
 
 /* --- KARŞILAMA ALANI (HERO) --- */
@@ -124,51 +148,26 @@ header {
     color: #e0e0e0;
 }
 
-.mavi-buton {
-    background-color: #0066cc;
-    color: white;
-    padding: 15px 40px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 30px;
+/* --- İÇERİK BAŞLIĞI VE KUTULAR --- */
+.baslik-kapsayici {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 10px;
+    background-color: #f0f2f5;
+}
+
+.populer-baslik {
+    font-size: 36px;
+    color: #111;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.populer-alt-yazi {
     font-size: 18px;
-    display: inline-block;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
-}
-
-.mavi-buton:hover {
-    background-color: #004c99;
-    transform: translateY(-2px);
-}
-
-/* --- KUTULAR VE FORM ALANLARI --- */
-.form-kutusu,
-.iletisim-kutusu,
-.hakkimizda-kutusu {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid #0066cc;
-    /* Resmi altta bırakmak için formu öne çıkarıyoruz */
-    position: relative;
-    z-index: 10;
-}
-
-.form-kutusu {
-    width: 350px;
-}
-
-.hakkimizda-kutusu {
-    width: 800px;
-}
-
-.iletisim-kutusu {
-    width: 900px;
-    display: flex;
-    padding: 0;
-    overflow: hidden;
+    color: #666;
+    margin-top: 10px;
 }
 
 .icerik-ozetleri {
@@ -217,7 +216,57 @@ header {
     text-decoration: none;
 }
 
-/* --- FORM ELEMANLARI --- */
+/* --- FORM KUTULARI VE SAYFA DÜZENİ --- */
+.sayfa-kapsayici {
+    position: relative;
+    overflow: hidden;
+    /* Kalan tüm boşluğu doldur */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    padding: 40px 0;
+}
+
+.form-arkaplan-resmi {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.4);
+}
+
+.form-kutusu,
+.iletisim-kutusu,
+.hakkimizda-kutusu {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #0066cc;
+    position: relative;
+    z-index: 10;
+}
+
+.form-kutusu {
+    width: 350px;
+}
+
+.hakkimizda-kutusu {
+    width: 800px;
+}
+
+.iletisim-kutusu {
+    width: 900px;
+    display: flex;
+    padding: 0;
+    overflow: hidden;
+}
+
 .girdi-kutusu {
     width: 100%;
     padding: 12px;
@@ -247,6 +296,7 @@ header {
     background-color: #004c99;
 }
 
+/* --- İLETİŞİM SAYFASI ÖZEL --- */
 .form-bolumu {
     width: 50%;
     padding: 40px;
@@ -268,7 +318,7 @@ header {
     margin-top: 0;
 }
 
-/* --- TİPOGRAFİ --- */
+/* --- METİN VE TİPOGRAFİ --- */
 .sayfa-basligi {
     color: #111;
     text-align: center;
@@ -316,138 +366,22 @@ header {
     margin-bottom: 10px;
 }
 
-/* --- FOOTER --- */
-.alt-alan {
-    background-color: #0a0a0a;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 40px;
-    border-top: 3px solid #0066cc;
-}
-
-.zorunlu-yazi {
-    font-size: 12px;
-    color: #666;
-    margin-top: 20px;
-    border-top: 1px solid #222;
-    padding-top: 10px;
-}
-
-/* --- MOBİL UYUMLULUK --- */
-@media (max-width: 768px) {
-    .hakkimizda-kutusu {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .sayfa-basligi {
-        font-size: 28px;
-    }
-
-    .iletisim-kutusu {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .form-bolumu,
-    .harita-bolumu {
-        width: 100%;
-    }
-}
-
-/* --- SAYFA KAPSAYICISI VE ARKA PLAN DÜZELTMESİ --- */
-.sayfa-kapsayici {
-    position: relative;
-    overflow: hidden;
-    min-height: calc(100vh - 190px);
-    /* Ekranı tam doldur */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-}
-
-.form-arkaplan-resmi {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    /* Arkada kalsın ama çok arkada değil */
-    filter: brightness(0.4);
-}
-
-/* --- FOOTER LİNKLERİ --- */
-.sosyal-medya a {
-    color: white;
-    /* Yazı beyaz olsun */
-    text-decoration: none;
-    /* Altındaki çizgiyi kaldır */
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.sosyal-medya a:hover {
-    color: #0066cc;
-    /* Üzerine gelince mavi olsun */
-}
-
-
-/* --- ANASAYFA POPÜLER İÇERİK BAŞLIĞI --- */
-
-.baslik-kapsayici {
-    text-align: center;
-    /* Yazıları ortala */
-    padding-top: 60px;
-    /* Üstteki resimden uzaklaş */
-    padding-bottom: 10px;
-    /* Kutulara yaklaş */
-    background-color: #f0f2f5;
-    /* Arka plan rengiyle uyumlu olsun */
-}
-
-.populer-baslik {
-    font-size: 36px;
-    color: #111;
-    margin: 0;
-    font-weight: 800;
-    /* Kalın ve tok duruş */
-    letter-spacing: -1px;
-    /* Harfleri hafif sıkıştır, modern durur */
-}
-
-.populer-alt-yazi {
-    font-size: 18px;
-    color: #666;
-    margin-top: 10px;
-}
-
-/* --- HEADER AÇILIR ARAMA BUTONU --- */
-
+/* --- HEADER ARAMA KUTUSU --- */
 .arama-kutusu {
     background: #222;
-    /* Menüyle uyumlu koyu arka plan */
     height: 40px;
     border-radius: 40px;
-    /* Yuvarlak kenarlar */
     padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.4s;
     border: 1px solid #333;
-    /* Hafif çerçeve */
 }
 
-/* Kutu üzerine gelince genişlesin */
 .arama-kutusu:hover {
     background: white;
-    /* Açılınca beyaz olsun */
     box-shadow: 0 0 10px #0066cc;
-    /* Mavi parlama */
 }
 
 .arama-btn {
@@ -476,19 +410,67 @@ header {
     transition: 0.4s;
     line-height: 40px;
     width: 0px;
-    /* Başlangıçta gizli (genişlik 0) */
     font-weight: bold;
 }
 
-/* Hover olunca input genişlesin */
 .arama-kutusu:hover>.arama-input {
     width: 200px;
-    /* Açılınca ne kadar uzasın? */
     padding: 0 10px;
 }
 
 .arama-kutusu:hover>.arama-btn {
     background: #0066cc;
-    /* Buton mavi olsun */
     color: white;
+}
+
+/* --- FOOTER --- */
+.alt-alan {
+    background-color: #0a0a0a;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: auto;
+    /* Footer'ı en alta itmek için */
+    border-top: 3px solid #0066cc;
+}
+
+.zorunlu-yazi {
+    font-size: 12px;
+    color: #666;
+    margin-top: 20px;
+    border-top: 1px solid #222;
+    padding-top: 10px;
+}
+
+.sosyal-medya a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.sosyal-medya a:hover {
+    color: #0066cc;
+}
+
+/* --- MOBİL UYUMLULUK --- */
+@media (max-width: 768px) {
+    .hakkimizda-kutusu {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .sayfa-basligi {
+        font-size: 28px;
+    }
+
+    .iletisim-kutusu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-bolumu,
+    .harita-bolumu {
+        width: 100%;
+    }
 }
