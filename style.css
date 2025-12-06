@@ -4,7 +4,7 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f2f5;
-    /* Sayfayı dikeyde tam ekran yap */
+    /* Sayfayı dikeyde tam ekran yap ve footer'ı alta it */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -30,7 +30,7 @@ header {
     margin: 0;
     padding: 0;
     align-items: center;
-    /* Butonları dikeyde ortalar */
+    /* Elemanları dikeyde ortala */
 }
 
 .ana-menu li {
@@ -52,7 +52,7 @@ header {
     color: #3399ff;
 }
 
-/* --- AÇILIR MENÜ --- */
+/* --- AÇILIR MENÜ (DROPDOWN) --- */
 .alt-menu {
     display: none;
     position: absolute;
@@ -74,6 +74,65 @@ header {
 
 .acilir-menu:hover .alt-menu {
     display: block;
+}
+
+/* --- ARAMA KUTUSU (HEADER İÇİ) --- */
+.arama-kutusu {
+    background: #222;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+    border: 1px solid #333;
+}
+
+.arama-kutusu:hover {
+    background: white;
+    box-shadow: 0 0 10px #0066cc;
+}
+
+.arama-btn {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arama-input {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #333;
+    font-size: 14px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+    /* Gizli başlar */
+    font-weight: bold;
+}
+
+.arama-kutusu:hover>.arama-input {
+    width: 200px;
+    /* Açılınca uzar */
+    padding: 0 10px;
+}
+
+.arama-kutusu:hover>.arama-btn {
+    background: #0066cc;
+    color: white;
 }
 
 /* --- BUTONLAR --- */
@@ -98,6 +157,8 @@ header {
     display: inline-block;
     transition: 0.3s;
     box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+    border: none;
+    cursor: pointer;
 }
 
 .mavi-buton:hover {
@@ -148,7 +209,61 @@ header {
     color: #e0e0e0;
 }
 
-/* --- İÇERİK BAŞLIĞI VE KUTULAR --- */
+/* --- SAYFA İÇERİK KAPSAYICISI (ORTA ALAN) --- */
+.sayfa-kapsayici {
+    position: relative;
+    overflow: hidden;
+    /* Kalan tüm boşluğu doldurarak Footer'ı aşağı it */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    padding: 40px 0;
+}
+
+.form-arkaplan-resmi {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    /* En arkada dursun */
+    filter: brightness(0.4);
+}
+
+/* --- FORM VE İÇERİK KUTULARI --- */
+.form-kutusu,
+.iletisim-kutusu,
+.hakkimizda-kutusu {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #0066cc;
+    /* Resmi altta bırakmak için kutuyu öne çıkarıyoruz */
+    position: relative;
+    z-index: 10;
+}
+
+.form-kutusu {
+    width: 350px;
+}
+
+.hakkimizda-kutusu {
+    width: 800px;
+}
+
+.iletisim-kutusu {
+    width: 900px;
+    display: flex;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* --- İÇERİK KUTULARI (ANASAYFA ALT) --- */
 .baslik-kapsayici {
     text-align: center;
     padding-top: 60px;
@@ -159,9 +274,9 @@ header {
 .populer-baslik {
     font-size: 36px;
     color: #111;
-    margin: 0;
     font-weight: 800;
     letter-spacing: -1px;
+    margin: 0;
 }
 
 .populer-alt-yazi {
@@ -175,6 +290,8 @@ header {
     justify-content: center;
     gap: 30px;
     padding: 60px 20px;
+    flex-wrap: wrap;
+    /* Çok kutu olursa alta geçsin */
 }
 
 .bilgi-kutusu {
@@ -186,6 +303,7 @@ header {
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s;
+    margin-bottom: 20px;
 }
 
 .bilgi-kutusu:hover {
@@ -216,57 +334,7 @@ header {
     text-decoration: none;
 }
 
-/* --- FORM KUTULARI VE SAYFA DÜZENİ --- */
-.sayfa-kapsayici {
-    position: relative;
-    overflow: hidden;
-    /* Kalan tüm boşluğu doldur */
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    padding: 40px 0;
-}
-
-.form-arkaplan-resmi {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    filter: brightness(0.4);
-}
-
-.form-kutusu,
-.iletisim-kutusu,
-.hakkimizda-kutusu {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid #0066cc;
-    position: relative;
-    z-index: 10;
-}
-
-.form-kutusu {
-    width: 350px;
-}
-
-.hakkimizda-kutusu {
-    width: 800px;
-}
-
-.iletisim-kutusu {
-    width: 900px;
-    display: flex;
-    padding: 0;
-    overflow: hidden;
-}
-
+/* --- FORM ELEMANLARI --- */
 .girdi-kutusu {
     width: 100%;
     padding: 12px;
@@ -283,20 +351,8 @@ header {
 
 .tam-genislik {
     width: 100%;
-    border: none;
-    cursor: pointer;
-    background-color: #0066cc;
-    color: white;
-    padding: 12px;
-    border-radius: 5px;
-    font-weight: bold;
 }
 
-.tam-genislik:hover {
-    background-color: #004c99;
-}
-
-/* --- İLETİŞİM SAYFASI ÖZEL --- */
 .form-bolumu {
     width: 50%;
     padding: 40px;
@@ -318,7 +374,7 @@ header {
     margin-top: 0;
 }
 
-/* --- METİN VE TİPOGRAFİ --- */
+/* --- TİPOGRAFİ (METİNLER) --- */
 .sayfa-basligi {
     color: #111;
     text-align: center;
@@ -366,63 +422,6 @@ header {
     margin-bottom: 10px;
 }
 
-/* --- HEADER ARAMA KUTUSU --- */
-.arama-kutusu {
-    background: #222;
-    height: 40px;
-    border-radius: 40px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.4s;
-    border: 1px solid #333;
-}
-
-.arama-kutusu:hover {
-    background: white;
-    box-shadow: 0 0 10px #0066cc;
-}
-
-.arama-btn {
-    color: white;
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    transition: 0.4s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.arama-input {
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: #333;
-    font-size: 14px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
-    font-weight: bold;
-}
-
-.arama-kutusu:hover>.arama-input {
-    width: 200px;
-    padding: 0 10px;
-}
-
-.arama-kutusu:hover>.arama-btn {
-    background: #0066cc;
-    color: white;
-}
-
 /* --- FOOTER --- */
 .alt-alan {
     background-color: #0a0a0a;
@@ -430,7 +429,7 @@ header {
     text-align: center;
     padding: 40px 20px;
     margin-top: auto;
-    /* Footer'ı en alta itmek için */
+    /* İçerik azsa bile en altta kal */
     border-top: 3px solid #0066cc;
 }
 
@@ -453,15 +452,70 @@ header {
     color: #0066cc;
 }
 
-/* --- MOBİL UYUMLULUK --- */
+/* --- ARAMA SAYFASI ETİKETLERİ --- */
+.etiket-link {
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+}
+
+.etiket-link:hover {
+    background-color: #0066cc;
+    color: white;
+    border-color: #0066cc;
+}
+
+/* --- MOBİL UYUMLULUK (RESPONSIVE) --- */
 @media (max-width: 768px) {
-    .hakkimizda-kutusu {
+    header {
+        flex-direction: column;
+        padding: 20px 10px;
+        height: auto;
+    }
+
+    .ana-menu {
+        flex-direction: column;
         width: 100%;
-        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .ana-menu li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .arama-kutusu {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .arama-kutusu:hover>.arama-input {
+        width: 100%;
+    }
+
+    .buyuk-baslik {
+        font-size: 32px;
     }
 
     .sayfa-basligi {
         font-size: 28px;
+    }
+
+    .icerik-ozetleri {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bilgi-kutusu {
+        width: 100%;
+        margin-bottom: 30px;
     }
 
     .iletisim-kutusu {
@@ -472,5 +526,16 @@ header {
     .form-bolumu,
     .harita-bolumu {
         width: 100%;
+        padding: 20px;
+    }
+
+    .form-kutusu,
+    .hakkimizda-kutusu {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .karsilama-kutusu {
+        height: 400px;
     }
 }
