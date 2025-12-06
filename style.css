@@ -1,10 +1,9 @@
-/* --- GENEL AYARLAR (MAVİ TEMA) --- */
+/* --- GENEL AYARLAR --- */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f2f5;
-    /* Biraz daha soğuk bir gri */
 }
 
 /* --- HEADER (ÜST MENÜ) --- */
@@ -14,7 +13,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* MAVİ DETAY 1: Alt Çizgi */
     border-bottom: 3px solid #0066cc;
 }
 
@@ -27,6 +25,7 @@ header {
     display: flex;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .ana-menu li {
@@ -44,7 +43,6 @@ header {
     display: block;
 }
 
-/* MAVİ DETAY 2: Hover Rengi */
 .ana-menu a:hover {
     color: #3399ff;
 }
@@ -60,7 +58,6 @@ header {
     list-style: none;
     padding: 0;
     z-index: 1000;
-    /* MAVİ DETAY 3: Üst Çizgi */
     border-top: 2px solid #0066cc;
 }
 
@@ -79,7 +76,6 @@ header {
     border-radius: 4px;
 }
 
-/* MAVİ DETAY 4: Kayıt Butonu */
 .buton-kayit {
     background-color: #0066cc;
     border-radius: 4px;
@@ -89,7 +85,6 @@ header {
 .karsilama-kutusu {
     position: relative;
     height: 600px;
-    /* Daha yüksek, daha havalı */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +101,6 @@ header {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    /* ÖNEMLİ: Resmi biraz daha kararttık (0.4) ki beyaz yazı patlasın */
     filter: brightness(0.4);
 }
 
@@ -115,13 +109,11 @@ header {
     z-index: 1;
     color: white;
     max-width: 800px;
-    /* Yazının arkasına çok hafif mavi-siyah gölge atalım, okunabilirlik artsın */
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .buyuk-baslik {
     font-size: 52px;
-    /* Biraz büyüttük */
     margin-bottom: 15px;
     letter-spacing: 1px;
 }
@@ -132,7 +124,6 @@ header {
     color: #e0e0e0;
 }
 
-/* MAVİ DETAY 5: Ana Buton */
 .mavi-buton {
     background-color: #0066cc;
     color: white;
@@ -140,21 +131,46 @@ header {
     text-decoration: none;
     font-weight: bold;
     border-radius: 30px;
-    /* Daha modern yuvarlak hatlar */
     font-size: 18px;
     display: inline-block;
     transition: 0.3s;
     box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
-    /* Mavi parlama efekti */
 }
 
 .mavi-buton:hover {
     background-color: #004c99;
     transform: translateY(-2px);
-    /* Hafif yukarı kalkma efekti */
 }
 
-/* --- KUTULAR --- */
+/* --- KUTULAR VE FORM ALANLARI --- */
+.form-kutusu,
+.iletisim-kutusu,
+.hakkimizda-kutusu {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #0066cc;
+    /* Resmi altta bırakmak için formu öne çıkarıyoruz */
+    position: relative;
+    z-index: 10;
+}
+
+.form-kutusu {
+    width: 350px;
+}
+
+.hakkimizda-kutusu {
+    width: 800px;
+}
+
+.iletisim-kutusu {
+    width: 900px;
+    display: flex;
+    padding: 0;
+    overflow: hidden;
+}
+
 .icerik-ozetleri {
     display: flex;
     justify-content: center;
@@ -175,7 +191,6 @@ header {
 
 .bilgi-kutusu:hover {
     transform: translateY(-5px);
-    /* Kutuya gelince hareket etsin */
 }
 
 .kutu-resim {
@@ -196,65 +211,13 @@ header {
     line-height: 1.5;
 }
 
-/* MAVİ DETAY 6: Linkler */
 .link-devam {
     color: #0066cc;
     font-weight: bold;
     text-decoration: none;
 }
 
-/* --- FOOTER --- */
-.alt-alan {
-    background-color: #0a0a0a;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 40px;
-    border-top: 3px solid #0066cc;
-}
-
-.zorunlu-yazi {
-    font-size: 12px;
-    color: #666;
-    margin-top: 20px;
-    border-top: 1px solid #222;
-    padding-top: 10px;
-}
-
-/* --- FORM KUTULARI (Giriş, Kayıt vb.) --- */
-.sayfa-kapsayici {
-    display: flex;
-    justify-content: center;
-    padding: 60px 20px;
-    min-height: 500px;
-}
-
-.form-kutusu,
-.iletisim-kutusu,
-.hakkimizda-kutusu {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    /* MAVİ DETAY 7: Kutu Üst Çizgisi */
-    border-top: 5px solid #0066cc;
-}
-
-.form-kutusu {
-    width: 350px;
-}
-
-.hakkimizda-kutusu {
-    width: 800px;
-}
-
-.iletisim-kutusu {
-    width: 900px;
-    display: flex;
-    padding: 0;
-    overflow: hidden;
-}
-
+/* --- FORM ELEMANLARI --- */
 .girdi-kutusu {
     width: 100%;
     padding: 12px;
@@ -266,7 +229,6 @@ header {
 
 .girdi-kutusu:focus {
     border-color: #0066cc;
-    /* Tıklayınca mavi olsun */
     outline: none;
 }
 
@@ -306,9 +268,7 @@ header {
     margin-top: 0;
 }
 
-/* --- İÇERİK SAYFALARI VE HAKKIMIZDA İÇİN METİN STİLLERİ --- */
-/* Bu kodları style.css dosyanın en altına yapıştır */
-
+/* --- TİPOGRAFİ --- */
 .sayfa-basligi {
     color: #111;
     text-align: center;
@@ -316,47 +276,36 @@ header {
     margin-bottom: 30px;
     font-weight: 700;
     letter-spacing: -1px;
-    /* Harfleri hafif yaklaştırır, modern durur */
 }
 
 .alt-baslik {
     color: #0066cc;
-    /* Mavi başlık */
     font-size: 24px;
     margin-top: 40px;
     margin-bottom: 15px;
     border-bottom: 2px solid #eee;
-    /* Altına ince çizgi */
     padding-bottom: 10px;
 }
 
 .duz-yazi {
     font-size: 16px;
     line-height: 1.8;
-    /* Satır arasını açar, okumayı kolaylaştırır */
     color: #444;
     margin-bottom: 20px;
     text-align: justify;
-    /* Yazıyı iki yana yaslar (gazete gibi) */
 }
 
 .hakkimizda-resim {
     width: 100%;
-    /* Resim kutunun genişliği kadar olsun */
     max-height: 400px;
-    /* Çok uzun resimler sayfayı kaplamasın */
     object-fit: cover;
-    /* Resmi bozmadan kırp */
     border-radius: 8px;
-    /* Köşeleri yuvarlat */
     margin: 20px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* Hafif gölge */
 }
 
 .liste-ozellik {
     list-style-type: square;
-    /* Kare madde işareti */
     padding-left: 20px;
     color: #555;
     line-height: 1.8;
@@ -367,7 +316,25 @@ header {
     margin-bottom: 10px;
 }
 
-/* Mobilde resimler ve yazılar kenara yapışmasın */
+/* --- FOOTER --- */
+.alt-alan {
+    background-color: #0a0a0a;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-top: 3px solid #0066cc;
+}
+
+.zorunlu-yazi {
+    font-size: 12px;
+    color: #666;
+    margin-top: 20px;
+    border-top: 1px solid #222;
+    padding-top: 10px;
+}
+
+/* --- MOBİL UYUMLULUK --- */
 @media (max-width: 768px) {
     .hakkimizda-kutusu {
         width: 100%;
@@ -377,38 +344,151 @@ header {
     .sayfa-basligi {
         font-size: 28px;
     }
+
+    .iletisim-kutusu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-bolumu,
+    .harita-bolumu {
+        width: 100%;
+    }
 }
 
-/* --- RESİMLİ ARKA PLAN DÜZELTMESİ --- */
-
-/* 1. Kapsayıcıyı "Çerçeve" yapıyoruz */
+/* --- SAYFA KAPSAYICISI VE ARKA PLAN DÜZELTMESİ --- */
 .sayfa-kapsayici {
     position: relative;
-    /* İçindeki resmi tutabilmesi için şart */
     overflow: hidden;
-    /* Resim taşarsa gizle */
-    min-height: 600px;
-    /* Sayfa çok kısa kalmasın */
+    min-height: calc(100vh - 190px);
+    /* Ekranı tam doldur */
     display: flex;
     justify-content: center;
-    /* Formu ortala */
     align-items: center;
-    /* Formu dikeyde de ortala */
     background: none;
-    /* Eski gri rengi iptal et */
 }
 
 .form-arkaplan-resmi {
     position: absolute;
-
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-    z-index: -1;
-
+    z-index: 0;
+    /* Arkada kalsın ama çok arkada değil */
     filter: brightness(0.4);
+}
 
+/* --- FOOTER LİNKLERİ --- */
+.sosyal-medya a {
+    color: white;
+    /* Yazı beyaz olsun */
+    text-decoration: none;
+    /* Altındaki çizgiyi kaldır */
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.sosyal-medya a:hover {
+    color: #0066cc;
+    /* Üzerine gelince mavi olsun */
+}
+
+
+/* --- ANASAYFA POPÜLER İÇERİK BAŞLIĞI --- */
+
+.baslik-kapsayici {
+    text-align: center;
+    /* Yazıları ortala */
+    padding-top: 60px;
+    /* Üstteki resimden uzaklaş */
+    padding-bottom: 10px;
+    /* Kutulara yaklaş */
+    background-color: #f0f2f5;
+    /* Arka plan rengiyle uyumlu olsun */
+}
+
+.populer-baslik {
+    font-size: 36px;
+    color: #111;
+    margin: 0;
+    font-weight: 800;
+    /* Kalın ve tok duruş */
+    letter-spacing: -1px;
+    /* Harfleri hafif sıkıştır, modern durur */
+}
+
+.populer-alt-yazi {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* --- HEADER AÇILIR ARAMA BUTONU --- */
+
+.arama-kutusu {
+    background: #222;
+    /* Menüyle uyumlu koyu arka plan */
+    height: 40px;
+    border-radius: 40px;
+    /* Yuvarlak kenarlar */
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+    border: 1px solid #333;
+    /* Hafif çerçeve */
+}
+
+/* Kutu üzerine gelince genişlesin */
+.arama-kutusu:hover {
+    background: white;
+    /* Açılınca beyaz olsun */
+    box-shadow: 0 0 10px #0066cc;
+    /* Mavi parlama */
+}
+
+.arama-btn {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arama-input {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #333;
+    font-size: 14px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+    /* Başlangıçta gizli (genişlik 0) */
+    font-weight: bold;
+}
+
+/* Hover olunca input genişlesin */
+.arama-kutusu:hover>.arama-input {
+    width: 200px;
+    /* Açılınca ne kadar uzasın? */
+    padding: 0 10px;
+}
+
+.arama-kutusu:hover>.arama-btn {
+    background: #0066cc;
+    /* Buton mavi olsun */
+    color: white;
 }
