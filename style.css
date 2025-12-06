@@ -378,3 +378,37 @@ header {
         font-size: 28px;
     }
 }
+
+/* --- RESİMLİ ARKA PLAN DÜZELTMESİ --- */
+
+/* 1. Kapsayıcıyı "Çerçeve" yapıyoruz */
+.sayfa-kapsayici {
+    position: relative;
+    /* İçindeki resmi tutabilmesi için şart */
+    overflow: hidden;
+    /* Resim taşarsa gizle */
+    min-height: 600px;
+    /* Sayfa çok kısa kalmasın */
+    display: flex;
+    justify-content: center;
+    /* Formu ortala */
+    align-items: center;
+    /* Formu dikeyde de ortala */
+    background: none;
+    /* Eski gri rengi iptal et */
+}
+
+.form-arkaplan-resmi {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    z-index: -1;
+
+    filter: brightness(0.4);
+
+}

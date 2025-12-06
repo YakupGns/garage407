@@ -3,14 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Güvenlik Sistemleri - Garage 407</title>
+    <title>Güvenlik Teknolojileri - Garage 407</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo-alani"><a href="index.html"><img src="./resimler/logo.png" alt="Logo" class="site-logo"></a>
+    <header class="ust-alan">
+        <div class="logo-alani">
+            <a href="index.html">
+                <img src="Fotograf Galerisi/logo.png" alt="Garage 407 Logo" class="site-logo">
+            </a>
         </div>
         <nav>
             <ul class="ana-menu">
@@ -34,38 +37,124 @@
     <div class="sayfa-kapsayici">
         <div class="hakkimizda-kutusu">
 
-            <h1 class="sayfa-basligi">Araç Güvenlik Sistemleri</h1>
+            <h1 class="sayfa-basligi">Otomobil Güvenlik Sistemleri: Fizik ve Yapay Zeka</h1>
 
-            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1000" alt="Araç Testi"
-                class="hakkimizda-resim">
+            <img src="Fotograf Galerisi/bmw.interior.jpg" alt="Güvenlik Testi" class="hakkimizda-resim">
 
             <p class="duz-yazi">
-                Otomobiller sadece A noktasından B noktasına gitmek için değil, içindeki yolcuları her koşulda korumak
-                için tasarlanır.
-                Modern araçlarda "Aktif" (kaza önleyici) ve "Pasif" (kaza anında koruyucu) olmak üzere iki tür güvenlik
-                sistemi bulunur.
+                Otomobil güvenliği, metal levhaların kalınlığından ibaret değildir; tamamen fizik kurallarının
+                yönetilmesidir. Bir araç yüksek hızla giderken muazzam bir <strong>Kinetik Enerji</strong> taşır. Kaza
+                anında veya ani manevrada bu enerjiyi yönetmek, mühendisliğin en zorlu alanıdır. Güvenlik sistemleri
+                literatürde ikiye ayrılır: Fizik kurallarını kullanan <strong>Aktif Sistemler</strong> ve yapay zekayı
+                kullanan <strong>ADAS (İleri Sürüş Destek)</strong> sistemleri.
             </p>
 
-            <h2 class="alt-baslik">ABS ve ESP Nedir?</h2>
+            <h2 class="alt-baslik">1. ABS (Anti-lock Braking System) ve Sürtünme Fiziği</h2>
             <p class="duz-yazi">
-                <strong>ABS (Kilitlenme Karşıtı Fren Sistemi):</strong> Ani frenlemede tekerleklerin kilitlenmesini
-                önleyerek sürücünün direksiyon hakimiyetini korumasını sağlar.
-                <br><br>
-                <strong>ESP (Elektronik Stabilite Programı):</strong> Virajlarda aracın savrulmasını engeller. Sensörler
-                aracın kaydığını algılarsa,
-                gerekli tekerleğe otomatik fren yaparak aracı yörüngesinde tutar.
+                ABS'nin çalışma prensibi, fizikteki "Statik Sürtünme" ve "Kinetik Sürtünme" farkına dayanır. Tekerlek
+                dönerken yere tutunma gücü (Statik), kilitlenip kayan bir tekerleğin tutunma gücünden (Kinetik) çok daha
+                yüksektir. Daha da önemlisi; <strong>kilitlenen tekerlek yönlendirilemez.</strong>
             </p>
-
-            <h2 class="alt-baslik">Hava Yastığı (Airbag) Çalışma Mantığı</h2>
             <p class="duz-yazi">
-                Hava yastıkları, çarpışma anında milisaniyeler içinde şişerek yolcuların sert yüzeylere çarpmasını
-                engeller.
-                Sistem, aracın üzerindeki ivme sensörlerinden gelen "kaza" sinyaliyle tetiklenir. Kimyasal bir tepkime
-                sonucu azot gazı açığa çıkar ve yastık 0.04 saniyede tamamen şişer.
+                Sistem, tekerleklerdeki hız sensörlerini milisaniyeler içinde okur. ECU, bir tekerleğin dönmeyi
+                durdurduğunu (kilitlendiğini) fark ederse, o tekerlekteki fren hidrolik basıncını saniyede 15-20 kez
+                azaltıp tekrar artırır. Bu "tut-bırak" işlemi sayesinde tekerlek dönmeye devam eder. Sonuç olarak
+                sürücü, tam fren yaparken (panik fren) aynı zamanda direksiyonu çevirip engelden kaçabilir.
             </p>
 
-            <img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?q=80&w=1000" alt="Teknoloji"
-                class="hakkimizda-resim">
+            <h2 class="alt-baslik">2. ESP (Elektronik Stabilite Programı) ve Vektörel Kontrol</h2>
+            <p class="duz-yazi">
+                ESP, otomotiv tarihinin en önemli icatlarından biridir. Sistem sürücünün niyeti ile aracın hareketi
+                arasındaki farkı sürekli hesaplar. Bunun için 3 kritik sensörden veri alır:
+                <br>• <strong>Direksiyon Açısı Sensörü:</strong> Sürücü nereye gitmek istiyor?
+                <br>• <strong>Yanal İvme (G) Sensörü:</strong> Araç fiziksel olarak nereye gidiyor?
+                <br>• <strong>Tekerlek Hız Sensörleri:</strong> Hangi tekerlek boşa dönüyor?
+            </p>
+            <p class="duz-yazi">
+                Örneğin; viraja hızlı girdiniz ve araç önden kaymaya (Understeer) başladı. Direksiyon sola çevrili ama
+                araç düz gidiyor. ESP bunu 20 milisaniyede fark eder ve fizik kurallarını kullanarak aracı döndürmek
+                için <strong>sol arka tekerleğe</strong> tek başına fren uygular. Bu frenleme, aracı bir "çapa" gibi
+                tutarak burnunu virajın içine çeker. Tüm bunlar sürücü fark etmeden gerçekleşir.
+            </p>
+
+            <h2 class="alt-baslik">3. Hava Yastığı (SRS) ve Kimyasal Tepkime</h2>
+            <p class="duz-yazi">
+                Hava yastıkları bir hava pompası ile değil, kontrollü bir patlama ile çalışır. Kaza anında ivme
+                sensörleri çarpışmayı algılar ve elektronik bir fünyeyi ateşler. Katı haldeki <strong>Sodyum Azid
+                    (NaN3)</strong> kimyasalı tepkimeye girerek hızla Azot gazına (N2) dönüşür. Yastık sadece 30-40
+                milisaniyede (göz kırpma süresinin yarısı) tamamen şişer ve başın sert yüzeylere çarpmasını engeller.
+            </p>
+
+            <hr style="border: 0; border-top: 2px solid #eee; margin: 40px 0;">
+
+            <h2 class="alt-baslik">4. Sürücü Bayılırsa Ne Olur? (Emergency Assist)</h2>
+            <p class="duz-yazi">
+                Modern teknolojinin en etkileyici özelliği budur. Uzun yolda sürücünün kalp krizi geçirdiğini veya
+                uyuyakaldığını düşünün. Sensörler sürücünün direksiyona, gaza veya frene uzun süre dokunmadığını fark
+                ederse süreç başlar:
+            </p>
+            <ul class="liste-ozellik">
+                <li><strong>Aşama 1 (Uyarı):</strong> Araç sesli ve görsel alarm verir, emniyet kemerini gerer.</li>
+                <li><strong>Aşama 2 (Uyandırma):</strong> Sürücüyü sarsmak için kısa ve sert bir "Fren Darbesi" (Jolt)
+                    uygular.</li>
+                <li><strong>Aşama 3 (Müdahale):</strong> Tepki yoksa, araç dörtlü flaşörleri yakar. Şerit takip sistemi
+                    aracı şeritte tutar. Gelişmiş versiyonlarda araç, trafiği radarla kontrol ederek <strong>otomatik
+                        olarak en sağ şeride geçer (Pull Over)</strong> ve emniyet şeridinde aracı yumuşakça durdurur.
+                </li>
+                <li><strong>Aşama 4 (Kurtarma):</strong> Araç durduğunda kapı kilitleri açılır, iç ışıklar yanar ve
+                    e-Call sistemi otomatik olarak 112 Acil Servisi arayarak GPS konumunu bildirir.</li>
+            </ul>
+
+            <h2 class="alt-baslik">5. Otonom Acil Frenleme (AEB) ve Yaya Algılama</h2>
+            <p class="duz-yazi">
+                İnsan beyninin reaksiyon süresi ortalama 1 saniyedir. Ancak elektronik beyinler için bu süre
+                milisaniyelerdir. Ön tampondaki <strong>Radar</strong> ve ön camdaki <strong>Stereo Kamera</strong>
+                sürekli yolu tarar.
+            </p>
+            <p class="duz-yazi">
+                Önünüzdeki araç aniden durursa veya yola bir çocuk fırlarsa, sistem tehlikeyi sürücüden önce görür.
+                Sürücü frene basmazsa, araç <strong>%100 fren gücüyle</strong> kendiliğinden durur (Full Auto Stop).
+                Yeni nesil sistemler gece karanlığında bile termal kameralarla canlıları algılayabilir.
+            </p>
+
+            <h2 class="alt-baslik">6. Pre-Safe: Kaza Öncesi Hazırlık</h2>
+            <p class="duz-yazi">
+                Araç, kazanın fiziksel olarak kaçınılmaz olduğunu (örneğin kaydığını veya arkadan birinin çok hızlı
+                yaklaştığını) anladığı o son saniyede "Pre-Crash" moduna geçer:
+                <br>• Emniyet kemerleri elektrik motorlarıyla geriye doğru çekilerek yolcuyu koltuğa sabitler.
+                <br>• Açık olan camlar ve sunroof otomatik kapanır (İçeri cisim girmemesi ve Airbag'in verimli çalışması
+                için).
+                <br>• Koltuk sırtlıkları dik konuma getirilir.
+                <br>• Hoparlörlerden özel bir <strong>"Pembe Gürültü" (Pink Noise)</strong> verilerek kulak kaslarının
+                kasılması sağlanır, böylece kaza gürültüsünün kulak zarına vereceği zarar önlenir.
+            </p>
+
+            <h2 class="alt-baslik">7. Şerit Takip ve Şeritte Kalma Asistanı (LKA)</h2>
+            <p class="duz-yazi">
+                Otoyol kazalarının büyük bir kısmı dikkatsizlik sonucu şeritten çıkma nedeniyle olur. Dikiz aynasının
+                arkasındaki kameralar yol çizgilerini (kesik veya düz) sürekli tarar.
+                <br><strong>Uyarı Sistemi (LDW):</strong> Sadece sürücüyü sesle veya direksiyonu titreterek uyarır.
+                <br><strong>Müdahale Sistemi (LKA):</strong> Eğer sürücü sinyal vermeden şeritten çıkarsa, araç
+                elektrikli direksiyon kutusuna (EPS) fiziksel tork uygulayarak direksiyonu çevirir ve aracı şeride geri
+                sokar.
+            </p>
+
+            <h2 class="alt-baslik">8. Kör Nokta Uyarı Sistemi (Blind Spot Detection)</h2>
+            <p class="duz-yazi">
+                Arka tamponun köşelerine gizlenmiş 24 GHz frekanslı radarlar, dikiz aynalarının göremediği "ölü
+                alanları" tarar. Eğer yan şeritte, sizin göremediğiniz bir araç varsa yan aynada sarı/kırmızı bir LED
+                yakar. Sürücü buna rağmen sinyal verip şerit değiştirmeye kalkarsa, direksiyonu sertleştirerek veya fren
+                yaparak şerit değiştirmeyi engeller. Aynı radarlar park yerinden geri geri çıkarken yandan gelen
+                araçları da görerek (Rear Cross Traffic Alert) kazayı önler.
+            </p>
+
+            <h2 class="alt-baslik">9. Gece Görüş Asistanı (Night Vision)</h2>
+            <p class="duz-yazi">
+                Özellikle BMW ve Mercedes gibi üst segment araçlarda bulunan bu teknoloji, askeri termal kamera
+                prensibiyle çalışır. İnsan gözünün veya araç farlarının göremediği 300 metre ilerideki canlıları (yaya
+                veya hayvan) vücut ısılarından algılar. Ekranda bu canlıları parlak bir şekilde gösterir ve far
+                selektörü yaparak hem sürücüyü hem de yayayı uyarır.
+            </p>
 
         </div>
     </div>
